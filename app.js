@@ -12,6 +12,18 @@ var fs = require('fs');
 const body_parser = require('body-parser');
 app.use(body_parser.urlencoded({ extended: true }));
 
+// Database/Firebase
+
+var firebase = require("firebase-admin");
+var serviceAccount = require("./serviceAccountKey.json");
+firebase.initializeApp({
+  credential: firebase.credential.cert(serviceAccount),
+  databaseURL: "https://snaek-db.firebaseio.com"
+});
+
+var db = firebase.database();
+var ref = db.ref("restricted_access");
+
 // home page 
 app.get('/', function (req, res) {
     res.render('home', {
@@ -19,17 +31,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', (req, res) => {
-    let account = {
+    var user_ref = ref.child("users");
+
+    user_ref.push({
         username: req.body.username_sign,
         email: req.body.email_sign,
-        password: req.body.email_sign
-    };
-
-    var json_data = JSON.stringify(account);
-    fs.writeFile("account.txt", json_data, function(err) {
-        if (err) {
-            console.log(err);
-        }
+        password: req.body.password_sign
     });
 
     res.render('home', {
