@@ -14,7 +14,7 @@ app.use(body_parser.urlencoded({ extended: true }));
 
 // home page 
 app.get('/', function (req, res) {
-    res.render('home', {
+    res.render('game', {
     });
 });
 

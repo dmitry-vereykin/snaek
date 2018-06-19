@@ -6,7 +6,14 @@ body {
     min-height: 100%;
     margin: 0;
     background-color: whitesmoke;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+}
+
+#title {
+    font-size: 23px;
+    color: coral;
 }
 
 .sign_log_part {
@@ -15,7 +22,7 @@ body {
     width: 100%;
 }
 
-.page_left {
+#page_left {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +31,7 @@ body {
     background-color: cornflowerblue;
 }
 
-.page_right {
+#page_right {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,13 +46,14 @@ form {
     align-items: center;
 }
 
-/* .vertical-line {
+.vertical-line {
     border-left: 3px solid black;
     height: 100%;
-} */
+}
 
 .form-field {
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .input {
@@ -67,4 +75,25 @@ form {
     text-transform: uppercase;
     letter-spacing: .09em;
     border-radius: 2px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+}
+
+.scoreboard {
+    text-align: center;
+}
+
+#game_window {
+    border-style: dashed;
+    border-width: 2px;
+
+    text-align: center;
+
+    /*To center the div*/
+    display: table;
+    margin: 0 auto;
+
+    background-image: url('./snake.jpg');
+    background-size: auto 275px;
+    background-repeat: no-repeat;
 }

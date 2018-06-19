@@ -1,11 +1,15 @@
-link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500")
-link(href="/css/style.css" rel="stylesheet" type="text/css")
+head  
+  //- link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500")
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P")
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css")
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
+  link(href="/css/style.css" rel="stylesheet" type="text/css")
 
 
-h1 Snaék
+h1(class="animated infinite pulse" id="title") Snaék
 
 div(class="sign_log_part")
-  div(class="page_left")
+  div(class="animated fadeInLeft" id="page_left")
     form(method="post" action="/" novalidate)
       div(class="form-header")
         h2 Please, register a new account.
@@ -20,7 +24,7 @@ div(class="sign_log_part")
 
   div(class="vertical-line")
 
-  div(class="page_right")
+  div(class="animated fadeInRight" id="page_right")
     form(method="post" action="/" novalidate)
       div(class="form-header")
         h2 Log in.
@@ -33,3 +37,7 @@ div(class="sign_log_part")
 
 div(class="scoreboard")
   h2 Scoreboard
+    ul
+      each val in [1, 2, 3, 4, 5]
+        li= "Player " + val
+        br
