@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eXrump/express_credentials_db_app.git"
+    "url": "git+https://github.com/eXrump/snaek.git"
   },
-  "author": "Dmitry V.",
+  "author": "Dmitry V., Nader A., Aaron N.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eXrump/express_credentials_db_app/issues"
+    "url": "https://github.com/eXrump/snaek/issues"
   },
-  "homepage": "https://github.com/eXrump/express_credentials_db_app#readme"
+  "homepage": "https://github.com/eXrump/snaek#readme"
 }
