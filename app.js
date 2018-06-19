@@ -14,7 +14,7 @@ app.use(body_parser.urlencoded({ extended: true }));
 
 // home page 
 app.get('/', function (req, res) {
-    res.render('game', {
+    res.render('home', {
     });
 });
 
@@ -35,7 +35,13 @@ app.post('/', (req, res) => {
     res.render('home', {
         // Maybe add something?
     });
-})
+});
+
+// home page 
+app.get('/game', function (req, res) {
+    res.render('game', {
+    });
+});
 
 app.listen(3000);
 console.log('3000 is the magic port');
