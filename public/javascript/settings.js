@@ -8,3 +8,8 @@ let food;
 let lootbox;
 let cntr = 0;
 let dead = false;
+let highest_score = 0;
+let snake_eating_audio = new Audio('./audio/snake_eating.mp3');
+let lootbox_eat_audio = new Audio('./audio/lootbox_eat.ogg');
+let snake_death_audio = new Audio('./audio/snake_death.mp3');
+let lootbox_spawn_audio = new Audio('./audio/lootbox_spawn.wav');
