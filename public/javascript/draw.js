@@ -31,7 +31,7 @@ let draw_module = (function () {
         // How many foods did the snaek eat
         let score_text = "Score: " + score;
         canvas_context.fillStyle = 'blue';
-        canvas_context.fillText(score_text, 145, canvas_height-5)
+        canvas_context.fillText(score_text, 335, canvas_height-5)
     };
 
     let draw_snake_function = function () {
@@ -48,8 +48,8 @@ let draw_module = (function () {
     let generate_food_function = function () {
         food = {
             // Generate random numbers of the position of the food
-            x: Math.floor((Math.random() * 30) + 1),
-            y: Math.floor((Math.random() * 30) + 1)
+            x: Math.floor((Math.random() * 60) + 1),
+            y: Math.floor((Math.random() * 60) + 1)
         };
 
         // Calculate Position of Snakes body
@@ -62,8 +62,8 @@ let draw_module = (function () {
             // If Food is in same place
             // Recalculate
             if (food.x === snake_X || food.y === snake_Y || food.x === snake_X && food.y === snake_Y){
-                food.x = Math.floor((Math.random() * 30) + 1);
-                food.y = Math.floor((Math.random() * 30) + 1);
+                food.x = Math.floor((Math.random() * 60) + 1);
+                food.y = Math.floor((Math.random() * 60) + 1);
             }
         }
     };
@@ -79,20 +79,20 @@ let draw_module = (function () {
                 break;
             case 1:
                 lootbox = {
-                    x:34,
+                    x:69,
                     y:0
                 };
                 break;
             case 2:
                 lootbox = {
                     x:0,
-                    y:34
+                    y:69
                 };
                 break;
             case 3:
                 lootbox = {
-                    x:34,
-                    y:34
+                    x:69,
+                    y:69
                 };
                 break;
         }
@@ -119,6 +119,7 @@ let draw_module = (function () {
 
         // Disable the start button, while the game is going
         btn.disabled = true;
+        dead = false;
         let snakeX = snake[0].x;
         let snakeY = snake[0].y;
 
@@ -153,6 +154,7 @@ let draw_module = (function () {
 
             // Reset score
             score = 0;
+            dead = true;
             return;
         }
         let tail = {
@@ -170,7 +172,7 @@ let draw_module = (function () {
             score += 3;
             cntr = 2;
             generate_lootbox_function();
-            if (score != 0  && score%2 === 0){
+            if (score !== 0  && score%2 === 0){
                 lootbox_function(lootbox.x, lootbox.y);
             }
         } else if(cntr > 0){
@@ -191,7 +193,7 @@ let draw_module = (function () {
 
         // Generate food
         food_function(food.x, food.y);
-        if (score != 0  && score%2 === 0){
+        if (score !== 0  && score%2 === 0){
             lootbox_function(lootbox.x, lootbox.y);
         }
 
@@ -204,14 +206,12 @@ let draw_module = (function () {
         draw_snake_function();
         generate_food_function();
         generate_lootbox_function();
-        gameloop = setInterval(paint, 80);
+        gameloop = setInterval(paint, 100);
        };
     //You need to return only the _init_ function at the end of the Module.
     return {
-        init: init
+        init: init,
+        paint: paint
     };
     // Close the Module
 }());
-
-
-
