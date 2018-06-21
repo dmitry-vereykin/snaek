@@ -30,8 +30,9 @@ let draw_module = (function () {
     let score_text_function = function () {
         // How many foods did the snaek eat
         let score_text = "Score: " + score;
-        canvas_context.fillStyle = 'blue';
-        canvas_context.fillText(score_text, 335, canvas_height-5)
+        current_score_display.innerHTML = score_text;
+        // canvas_context.fillStyle = 'blue';
+        // canvas_context.fillText(score_text, 335, canvas_height-5)
     };
 
     let draw_snake_function = function () {
@@ -160,6 +161,7 @@ let draw_module = (function () {
             }
             score = 0;
             dead = true;
+            current_score_display.innerHTML = "Score: " + score;
             return;
         }
         let tail = {
