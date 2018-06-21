@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/login', (req, res) => {
+app.post('/sign-up', (req, res) => {
     var user_ref = ref.child("users");
 
     user_ref.push({
@@ -44,10 +44,10 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.post('/sign-up', (req, res) => {
-    let ref = ref.child("users");
+app.post('/login', (req, res) => {
+    let user_ref = ref.child("users");
 
-    ref.authWithPassword({
+    user_ref.authWithPassword({
         email    : req.body.username_signin,
         password : req.body.password_sign
     }, function(error, authData) {
