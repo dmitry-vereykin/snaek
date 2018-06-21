@@ -41,6 +41,41 @@
                     }
                 }
                 break;
+            case 65:
+                if (direction !== 'right'){
+                    direction = 'left';
+                    if(dead === false){
+                        draw_module.paint();
+                    }
+                }
+                break;
+
+            case 68:
+                if (direction !== 'left'){
+                    direction = 'right';
+                    if(dead === false){
+                        draw_module.paint();
+                    }
+                }
+                break;
+
+            case 87:
+                if (direction !== 'down'){
+                    direction = 'up';
+                    if(dead === false){
+                        draw_module.paint();
+                    }
+                }
+                break;
+
+            case 83:
+                if (direction !== 'up'){
+                    direction = 'down';
+                    if(dead === false){
+                        draw_module.paint();
+                    }
+                }
+                break;
         }
     }
 

@@ -6,7 +6,8 @@ head
   link(href="/css/style.css" rel="stylesheet" type="text/css")
 
 
-h1(class="animated infinite pulse" id="title") Snaék
+a(href="/game")
+  h1(class="animated infinite pulse" id="title") Snaék
 
 div(class="sign_log_part")
   div(class="animated fadeInLeft" id="page_left")
@@ -18,20 +19,23 @@ div(class="sign_log_part")
       div(class="form-field")
         input(class="input" name="email_sign" type="text" placeholder="Email" required)
       div(class="form-field")
-        input(class="input" name="password_sign" type="text" placeholder="Password" required)
+        input(class="input" name="password_sign" type="password" placeholder="Password" required)
       div(class="form-actions")
         button(class="btn" type="submit") Sign up
+      div
+        if error
+          p= error
 
   div(class="vertical-line")
 
   div(class="animated fadeInRight" id="page_right")
-    form(method="post" action="/" novalidate)
+    form(method="post" action="/login" novalidate)
       div(class="form-header")
         h2 Log in.
       div(class="form-field")
         input(class="input" name="email_log" type="text" placeholder="Email" required)
       div(class="form-field")
-        input(class="input" name="password_log" type="text" placeholder="Password" required)
+        input(class="input" name="password_log" type="password" placeholder="Password" required)
       div(class="form-actions")
         button(class="btn" type="submit") Log in
 

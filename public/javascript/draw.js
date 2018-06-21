@@ -146,6 +146,7 @@ let draw_module = (function () {
         if(snakeX === -1 || snakeX === canvas_width/snake_size || snakeY === -1 || snakeY === canvas_height/snake_size || check_collision_function(snakeX, snakeY, snake)){
             // Stop Game
             // Re-enable start button
+            snake_death_audio.play();
             btn.disabled = false;
 
             // Clean the canvas
@@ -153,6 +154,10 @@ let draw_module = (function () {
             gameloop = clearInterval(gameloop);
 
             // Reset score
+            if(score >= highest_score){
+                highest_score = score;
+                highest_score_display.innerHTML = "Highest Score: " + highest_score;
+            }
             score = 0;
             dead = true;
             return;
@@ -165,6 +170,8 @@ let draw_module = (function () {
         // in this case, you shouldn't pop out the last element of the array
         if (snakeX === food.x && snakeY === food.y){
 
+            snake_eating_audio.play();
+
             score++;
             generate_food_function();
 
@@ -172,6 +179,7 @@ let draw_module = (function () {
             score += 3;
             cntr = 2;
             generate_lootbox_function();
+            lootbox_eat_audio.play();
             if (score !== 0  && score%2 === 0){
                 lootbox_function(lootbox.x, lootbox.y);
             }
