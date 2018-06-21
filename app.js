@@ -5,24 +5,12 @@ var app = express();
 app.set('view engine', 'pug');
 app.use(express.static("public"));
 
-// file
-var fs = require('fs');
-
 // Parsing input data
 const body_parser = require('body-parser');
 app.use(body_parser.urlencoded({ extended: true }));
 
-// Database/Firebase
+// Database
 
-var firebase = require("firebase-admin");
-var serviceAccount = require("./serviceAccountKey.json");
-firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
-  databaseURL: "https://snaek-db.firebaseio.com"
-});
-
-var db = firebase.database();
-let ref = db.ref("restricted_access");
 
 // home page 
 app.get('/', function (req, res) {
@@ -30,33 +18,16 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/sign-up', (req, res) => {
-    var user_ref = ref.child("users");
-
-    user_ref.push({
-        username: req.body.username_sign,
-        email: req.body.email_sign,
-        password: req.body.password_sign
-    });
+app.post('/', (req, res) => {
+    
 
     res.render('home', {
-        // Maybe add something?
+        error: "More ass added."
     });
 });
 
 app.post('/login', (req, res) => {
-    let user_ref = ref.child("users");
-
-    user_ref.authWithPassword({
-        email    : req.body.username_signin,
-        password : req.body.password_sign
-    }, function(error, authData) {
-        if (error) {
-            console.log("Login Failed!", error);
-        } else {
-            console.log("Authenticated successfully with payload:", authData);
-        }
-    });
+    
 
     res.render('home', {
         // Maybe add something?
