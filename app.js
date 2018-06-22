@@ -39,6 +39,7 @@ app.post('/sign-up', (req, res) => {
             error_signup: "Fields must be filled out."
         });
     } else {
+        // Something is off here
         user_ref.orderByChild('email').equalTo(email).on('child_added', function (snap) {
             if (snap.val() === null) {
                 user_ref.push({
@@ -53,10 +54,6 @@ app.post('/sign-up', (req, res) => {
             }
         });
     }
-    
-    res.render('home', {
-
-    });
 });
 
 app.post('/login', (req, res) => {
