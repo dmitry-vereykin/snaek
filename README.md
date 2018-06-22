@@ -1,5 +1,7 @@
 # Snaék
 
+https://snaek-db.firebaseapp.com
+
 For publishing:
 
 npm i -g firebase-tools
