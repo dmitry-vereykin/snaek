@@ -1,21 +1,22 @@
-head
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P")
-    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css")
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
-    meta(charset="UTF-8")
-    title Snaék
-    link(rel="stylesheet" href="/css/style.css")
+link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P")
+link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css")
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
+meta(charset="UTF-8")
+title Snaék
+link(rel="stylesheet" href="/css/style.css")
 
-body(class="game_body")
+h1= "Hello, " + username
+
+div(id="game_body")
     div(class="animated fadeInLeft" id="game_page_left")
         h1(id="highest_score_display" class="score") Highest Score: 0
     div(id="vertical-line-game")
     div(class="animated fadeInRight" id="game_page_right")
         h1(id="current_score_display" class="score") Score: 0
 
-    div(id="game_window")
-        canvas(id="canvas" width="700" height="700")
-        button(id="btn" class="btn") START
+div(id="game_window" class="animated zoomIn")
+    canvas(id="canvas" width="700" height="700")
+    button(id="btn" class="btn") START
 
 script(src="javascript/settings.js")
 script(src="javascript/draw.js")

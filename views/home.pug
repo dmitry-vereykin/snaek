@@ -11,7 +11,7 @@ a(href="/game")
 
 div(class="sign_log_part")
   div(class="animated fadeInLeft" id="page_left")
-    form(method="post" action="/" novalidate)
+    form(method="post" action="/sign-up" novalidate)
       div(class="form-header")
         h2 Please, register a new account.
       div(class="form-field")
@@ -22,9 +22,9 @@ div(class="sign_log_part")
         input(class="input" name="password_sign" type="password" placeholder="Password" required)
       div(class="form-actions")
         button(class="btn" type="submit") Sign up
-      div
-        if error
-          p= error
+      div(id="error")
+        if error_signup
+          p= error_signup
 
   div(id="vertical-line-home")
 
@@ -38,6 +38,9 @@ div(class="sign_log_part")
         input(class="input" name="password_log" type="password" placeholder="Password" required)
       div(class="form-actions")
         button(class="btn" type="submit") Log in
+      div(id="error")
+        if error_login
+          p= error_login
 
 div(class="scoreboard")
   h2 Scoreboard
