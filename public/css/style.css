@@ -51,12 +51,6 @@ form {
     height: 100%;
 }
 
-#vertical-line-game {
-    position: relative;
-    border-left: 3px solid black;
-    height: 100%;
-    z-index: 0;
-}
 
 .form-field {
     margin-bottom: 10px;
@@ -126,10 +120,17 @@ form {
     flex-direction: row;
 }
 
+#vertical-line-game {
+    position: relative;
+    border-left: 3px solid black;
+    height: 93%;
+    z-index: 0;
+}
+
 #game_page_left {
     position: relative;
     width: 50%;
-    height: 100%;
+    height: 93%;
     background-color: cadetblue;
     z-index: 0;
 }
@@ -137,7 +138,7 @@ form {
 #game_page_right {
     position: relative;
     width: 50%;
-    height: 100%;
+    height: 93%;
     background-color: cornflowerblue;
     z-index: 0;
 }

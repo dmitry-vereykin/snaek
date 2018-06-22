@@ -58,7 +58,7 @@ app.post('/sign-up', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    var user_ref = ref.child("users");
+    // var user_ref = ref.child("users");
     let email = req.body.email_log;
     let password = req.body.password_log;
     user_ref.orderByChild('email').equalTo(email).on('child_added', function (snap) {

@@ -49,8 +49,8 @@ let draw_module = (function () {
     let generate_food_function = function () {
         food = {
             // Generate random numbers of the position of the food
-            x: Math.floor((Math.random() * 60) + 1),
-            y: Math.floor((Math.random() * 60) + 1)
+            x: Math.floor((Math.random() * 45) + 1),
+            y: Math.floor((Math.random() * 45) + 1)
         };
 
         // Calculate Position of Snakes body
@@ -63,8 +63,8 @@ let draw_module = (function () {
             // If Food is in same place
             // Recalculate
             if (food.x === snake_X || food.y === snake_Y || food.x === snake_X && food.y === snake_Y){
-                food.x = Math.floor((Math.random() * 60) + 1);
-                food.y = Math.floor((Math.random() * 60) + 1);
+                food.x = Math.floor((Math.random() * 45) + 1);
+                food.y = Math.floor((Math.random() * 45) + 1);
             }
         }
     };
@@ -80,20 +80,20 @@ let draw_module = (function () {
                 break;
             case 1:
                 lootbox = {
-                    x:69,
+                    x:49,
                     y:0
                 };
                 break;
             case 2:
                 lootbox = {
                     x:0,
-                    y:69
+                    y:49
                 };
                 break;
             case 3:
                 lootbox = {
-                    x:69,
-                    y:69
+                    x:49,
+                    y:49
                 };
                 break;
         }
@@ -178,11 +178,11 @@ let draw_module = (function () {
             generate_food_function();
 
         } else if(snakeX === lootbox.x && snakeY === lootbox.y){
-            score += 3;
-            cntr = 2;
+            score += 5;
+            cntr = 6;
             generate_lootbox_function();
             lootbox_eat_audio.play();
-            if (score !== 0  && score%2 === 0){
+            if (score !== 0  && score%10 === 0){
                 lootbox_function(lootbox.x, lootbox.y);
             }
         } else if(cntr > 0){
@@ -203,7 +203,7 @@ let draw_module = (function () {
 
         // Generate food
         food_function(food.x, food.y);
-        if (score !== 0  && score%2 === 0){
+        if (score !== 0  && score%10 === 0){
             lootbox_function(lootbox.x, lootbox.y);
         }
 
