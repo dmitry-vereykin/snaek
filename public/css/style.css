@@ -46,9 +46,14 @@ form {
     align-items: center;
 }
 
-.vertical-line {
-    position: relative;
+#vertical-line-home {
     border-left: 3px solid black;
+    height: 100%;
+}
+
+#vertical-line-game {
+    position: relative;
+    border-left: 4px solid black;
     height: 100%;
     z-index: 0;
 }
