@@ -47,8 +47,10 @@ form {
 }
 
 .vertical-line {
+    position: relative;
     border-left: 3px solid black;
     height: 100%;
+    z-index: 0;
 }
 
 .form-field {
@@ -84,16 +86,48 @@ form {
 }
 
 #game_window {
+    position: fixed;
+    z-index: 1;
+
     border-style: dashed;
-    border-width: 2px;
+    border-width: 3px;
 
     text-align: center;
+    position: center;
+
+    background: lightgrey;
 
     /*To center the div*/
-    display: table;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
 
-    /*background-image: url('./snake.jpg');*/
+    background-image: url('../public/snake.jpg');
     /*background-size: auto 275px;*/
     /*background-repeat: no-repeat;*/
+}
+
+.score {
+    text-align: center;
+}
+
+.game_body {
+    display: flex;
+    flex-direction: row;
+}
+
+#game_page_left {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: cadetblue;
+    z-index: 0;
+}
+
+#game_page_right {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: cornflowerblue;
+    z-index: 0;
 }
