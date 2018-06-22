@@ -31,42 +31,44 @@ app.get('/', function (req, res) {
 });
 
 app.post('/sign-up', (req, res) => {
-    let email = req.body.email_sign.replace(/\s/g, '');
+    let email_info = req.body.email_sign.replace(/\s/g, '');
     let username = req.body.username_sign.replace(/\s/g, '');
     let password = req.body.password_sign.replace(/\s/g, '');
+//    let error = "";
     
-    if (email === "" || username === "" || password === "") {
-        res.render('home', {
-            error_signup: "Fields must be filled out."
-        });
+    if (email_info === "" || username === "" || password === "") {
+        res.render('home', {error_signup: "Fields must be filled out."});
     } else {
         // Something is off here
-        user_ref.orderByChild('email').equalTo(email).on('child_added', function (snap) {
-            if (snap.val() === null) {
+        console.log("1")
+        user_ref.orderByChild('email').equalTo(email_info).on('value', function (snap) {
+            console.log("2")
+            if (snap.val()) {
+                //res.render('home', {error_signup: "User already exists."});
+//                error = "no no no"
+                res.render('home',{});
+
+            } else {
+                console.log("3")
                 user_ref.push({
                     username: req.body.username_sign,
                     email: req.body.email_sign,
                     password: req.body.password_sign
                 });
-            } else {
-                res.render('home', {
-                    error_signup: "User already exists."
-                });
+//                error = "yes yes yes"
+                res.render('home',{});
+
             }
         });
+
     }
 });
 
 app.post('/login', (req, res) => {
-    var user_ref = ref.child("users");
     let email = req.body.email_log;
     let password = req.body.password_log;
     user_ref.orderByChild('email').equalTo(email).on('child_added', function (snap) {
-        if (snap.val() === null) { 
-            res.render('home', {
-                error_login: "User not found."
-            });
-        } else {
+        if (snap.val()) {
             if (snap.val().password === password) {
                 res.render('game', {
                     username: snap.val().username
@@ -76,6 +78,11 @@ app.post('/login', (req, res) => {
                     error_login: "Incorrect password."
                 });
             }
+
+        } else {
+            res.render('home', {
+                error_login: "User not found."
+            });
         }
     });
 });
