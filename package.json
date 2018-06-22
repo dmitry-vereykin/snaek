@@ -7,7 +7,6 @@
     "animate.css": "^3.6.1",
     "express": "^4.16.3",
     "firebase-admin": "^5.12.1",
-    "mongoose": "^5.1.6",
     "pug": "^2.0.3"
   },
   "devDependencies": {},
