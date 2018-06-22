@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+const functions = require('firebase-functions');
 
 // set the view engine to ejs
 app.set('view engine', 'pug');
@@ -87,3 +88,5 @@ app.get('/game', function (req, res) {
 
 app.listen(3000);
 console.log('3000 is the magic port');
+
+exports.snaek = functions.https.onRequest(app);
