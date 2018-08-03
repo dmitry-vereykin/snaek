@@ -47,16 +47,19 @@ app.post('/sign-up', (req, res) => {
 app.post('/login', (req, res) => {
     let user_ref = ref.child("users");
 
-    user_ref.authWithPassword({
-        email    : req.body.username_signin,
-        password : req.body.password_sign
-    }, function(error, authData) {
-        if (error) {
-            console.log("Login Failed!", error);
-        } else {
-            console.log("Authenticated successfully with payload:", authData);
-        }
-    });
+
+
+
+    // user_ref.authWithPassword({
+    //     email    : req.body.username_signin,
+    //     password : req.body.password_sign
+    // }, function(error, authData) {
+    //     if (error) {
+    //         console.log("Login Failed!", error);
+    //     } else {
+    //         console.log("Authenticated successfully with payload:", authData);
+    //     }
+    // });
 
     res.render('home', {
         // Maybe add something?
